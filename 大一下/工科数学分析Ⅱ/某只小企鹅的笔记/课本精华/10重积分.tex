@@ -1,0 +1,130 @@
+\documentclass{article} %article 文档
+\usepackage{ctex}  %使用宏包(为了能够显示汉字)
+\usepackage[hidelinks]{hyperref}
+\usepackage{color}
+\usepackage{amsmath}  %公式符号包
+
+\title{高等数学笔记}  %文章标题
+\author{}   %作者的名称
+\date{}       %日期
+% 设置页面的环境,a4纸张大小，左右上下边距信息
+\usepackage[a4paper,left=10mm,right=10mm,top=15mm,bottom=15mm]{geometry}  
+\begin{document} %正文部分
+\maketitle          %添加这一句才能够显示标题等信息
+
+%目录页
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+\setcounter{page}{1}
+
+
+
+
+
+%正文
+\section{重积分}
+\subsection{二重积分的概念与性质}
+\subsubsection{二重积分的概念}
+$$ \iint_{D} f(x,y)d\sigma =\iint_{D} f(x,y)dxdy $$
+\begin{enumerate}
+    \item 被积函数$f(x,y)$
+    \item 被积表达式$f(x,y)d\sigma$
+    \item 面积元素$d\sigma$
+    \item 积分变量$x,y$
+    \item 积分区域$D$
+\end{enumerate}
+
+
+\subsubsection{二重积分的性质}
+\begin{enumerate}
+    \item $\displaystyle \iint_{D} [\alpha f(x,y)+\beta g(x,y)]d\sigma =\alpha \iint_{D} f(x,y)d\sigma + \beta \iint_{D} g(x,y)d\sigma $
+    \item $\displaystyle \iint_{D} \alpha f(x,y)d\sigma =\iint_{D_1} f(x,y)d\sigma + \iint_{D_2} f(x,y)d\sigma $
+    \item $\displaystyle \sigma=\iint_D 1\cdot d\sigma=\iint_D d\sigma$，$\sigma$为$D$的面积
+    \item 若在$D$上$f(x,y)\leq g(x,y)$，则$\displaystyle\iint_D f(x,y)d\sigma \leq \iint_D g(x,y)d\sigma$\\
+        $\displaystyle \left|\iint_D f(x,y)d\sigma \right|\leq \iint_D |f(x,y)|d\sigma $
+    \item $\displaystyle m\sigma\leq\iint_D f(x,y)d\sigma\leq M\sigma$，其中$m,M$分别为$f(x,y)$在$D$上的最小值和最大值
+    \item 二重积分中值定理$\displaystyle \iint_D f(x,y)d\sigma=f(\xi,\eta)\sigma$，其中$(\xi,\eta)\in D$
+\end{enumerate}
+
+\subsection{二重积分的计算法}
+\subsubsection{利用直角坐标系计算二重积分}
+$$\iint_D f(x,y)d\sigma = \int_a^b\left[\int_{y_1(x)}^{y_2(x)}f(x,y)dy\right]dx=\int_a^b dx\int_{y_1(x)}^{y_2(x)}f(x,y)dy$$\par
+简单来说就是把积分拆成2次计算，\par
+先把$x$看成常数计算$y$从$y_1(x)$到$y_2(x)$的定积分，\par
+然后再把结果对$x$计算$[a,b]$上的定积分\par
+
+\textcolor{red}{关键：确定积分限}
+
+\subsubsection{利用极坐标系计算二重积分}
+$$\begin{array}{rl}
+\displaystyle\iint_D f(\rho\cos\theta,\rho\sin\theta)\rho d\rho d\theta 
+&\displaystyle = \int_{\alpha}^{\beta}\left[\int_{\phi_1(\theta)}^{\phi_2(\theta)}f(\rho\cos\theta,\rho\sin\theta)\rho d\rho \right]d\theta 
+\\ &\displaystyle = \int_{\alpha}^{\beta}d\theta \int_{\phi_1(\theta)}^{\phi_2(\theta)}f(\rho\cos\theta,\rho\sin\theta)\rho d\rho
+\end{array}$$
+
+\textbf{重要结论：}\textcolor{red}{$$\displaystyle
+\int_0^{\frac{\pi}{2}}\sin^n\theta\mathrm{d}\theta=\int_0^{\frac{\pi}{2}}\cos^n\theta\mathrm{d}\theta=\left\{
+    \begin{array}{ll}
+        \displaystyle \frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdot...\cdot\frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2} & \mbox{，n为正偶数}\vspace{2mm}\\
+        \displaystyle \frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdot...\cdot\frac{4}{5}\cdot\frac{2}{3} & \mbox{，n为大于1的正奇数}\\
+    \end{array}
+\right.
+$$}
+\subsubsection{*二重积分的换元法}
+
+\subsection{三重积分}
+\subsubsection{三重积分的概念}
+$$\iiint_\Omega f(x,y,z)dv=\iiint_\Omega f(x,y,z)dxdydz$$
+
+\subsubsection{三重积分的计算}
+
+简单来说就是把积分拆成3次计算\par
+\begin{enumerate}
+    \item 直角坐标系\\
+        $\displaystyle \iiint_\Omega f(x,y,z)dv=\int_{a}^{b}dx\int_{y_1(x)}^{y_2(x)}dy\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)dz$
+    \item 柱面坐标系$\left\{\begin{array}{l}
+            x=\rho\cos \theta\\
+            y=\rho\sin \theta\\
+            z=z
+        \end{array}\right.$\\
+        $\displaystyle \iiint_\Omega f(x,y,z)dv=\iiint_{\Omega}F(\rho,\theta,z)\rho d\rho d\theta dz$
+    \item *球面坐标系$\left\{\begin{array}{l}
+            x=r\cos\theta\sin\phi\\
+            y=r\sin\theta\sin\phi\\
+            z=r\cos\phi
+        \end{array}\right.$\\
+        
+\end{enumerate}
+
+\subsection{重积分的应用}
+\subsubsection{曲面面积}
+面积元素$dA=\sqrt{1+f_x^2(x,y)+f_y^2(x,y)}d\sigma$\par
+曲面面积$\begin{array}{rl}
+    A &\displaystyle =\iint_{D_{xy}} \sqrt{1+f_x^2(x,y)+f_y^2(x,y)}d\sigma
+\end{array}$\par
+
+*用曲面参数方程求曲面面积
+
+\subsubsection{质心}
+平面薄板的质心\par
+$\displaystyle\overline{x}=\frac{M_y}{M}{\displaystyle\iint_D x\mu(x,y)d\sigma\over\displaystyle\iint_D \mu(x,y)d\sigma}$\par
+$\displaystyle\overline{y}=\frac{M_x}{M}{\displaystyle\iint_D y\mu(x,y)d\sigma\over\displaystyle\iint_D \mu(x,y)d\sigma}$\par
+
+\subsubsection{转动惯量}
+$dI_x=y^2\mu(x,y)d\sigma,dI_y=x^2\mu(x,y)d\sigma$\par
+$\displaystyle I_x=\iint_D y^2\mu(x,y)d\sigma$\par
+$\displaystyle I_y=\iint_D x^2\mu(x,y)d\sigma$\par
+
+\subsubsection{引力}
+一空间物体对某一质点的引力\par
+$\begin{array}{rl}
+    \vec{F} & =(\vec{F}_x,\vec{F}_y,\vec{F}_z)\\
+      & \displaystyle =(\iiint_\Omega{G\rho(x,y,z)(x-x_0) \over r^3}dv,\iiint_\Omega{G\rho(x,y,z)(y-y_0) \over r^3}dv,\iiint_\Omega{G\rho(x,y,z)(z-z_0) \over r^3}dv )
+\end{array}$
+
+\subsection{*含参变量的积分}
+
+
+
+\end{document}

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>第7章.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+</head>
+<body>
+<p> -->
+<font face='宋体'>
+<h1 id="%E7%AC%AC7%E7%AB%A0-%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><strong>第7章 微分方程</strong></h1>
+<h2 id="%E7%AC%AC1%E8%8A%82-%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><strong>第1节 微分方程的基本概念</strong></h2>
+<ul>
+<li>微分方程：用来表示<font color=#FF4500>未知函数、未知函数的导数与自变量</font>之间的关系的方程。<br>
+（简单来说就是一种方程。）</li>
+</ul>
+<!-- <font color=#228B22>简单来说就是一种方程。</font> -->
+<ul>
+<li>
+<p>微分方程的阶：微分方程中所出现的未知函数的<font color=#FF4500>最高阶导数的阶数</font>。<br>
+eg. $x^{3}y'''+x^{2}y''+xy'=1$ 就是一个3阶方程。<br>
+（类似于多项式的次数：多项式中最高次项的次数。）</p>
+</li>
+<li>
+<p>微分方程的解：带入方程后能使方程成为恒等式的<font color=#FF4500>函数</font>。<br>
+（和普通的方程一样，微分方程也有解，只不过是函数而已。）</p>
+</li>
+<li>
+<p>微分方程的通解：含有和微分方程的阶数相同的个数的常数的解。<br>
+（就是微分方程所有解的表达通式。）</p>
+</li>
+<li>
+<p>微分方程的特解：将通解中的常数确定下来后的解。</p>
+</li>
+<li>
+<p>初值条件：给定的条件<br></p>
+</li>
+</ul>
+<!-- （如：给定 $y\mid_{\scriptscriptstyle x=x_{0}}=y_{0}，y'\mid_{x=x_{0}}=y'_{0}$ ） -->
+<!-- <br> -->
+<h2 id="%E7%AC%AC2%E8%8A%82-%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8F%98%E9%87%8F%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><strong>第2节 可分离变量的微分方程</strong></h2>
+<ul>
+<li>可分离变量的微分方程：形如 $g(y)dy=f(x)dx$ 的方程或可以变形成这种形式的方程。<br>
+（如： $\frac{dy}{dx}=x^{3}y$ ，它可化为 $\frac{1}{y}dy=x^{3}dx$ ）<br></li>
+</ul>
+<h3 id="gydyfxdx-%E5%9E%8B%E7%9A%84%E8%A7%A3%E6%B3%95br"><strong>· $g(y)dy=f(x)dx$ 型的解法</strong><br></h3>
+<ul>
+<li><font color=#FF4500>对2边同时积分</font> $\int{g(y)dy}=\int{f(x)dx}$ <br>
+得到 $G(y)=F(x)+C$ <br>
+进而化简为 $y=\phi(x) +C$ 的形式，即原方程的解。<br></li>
+</ul>
+<!-- <br> -->
+<h2 id="%E7%AC%AC3%E8%8A%82-%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B"><strong>第3节 齐次方程</strong></h2>
+<ul>
+<li>齐次方程：可化为 $\frac{dy}{dx}=\phi(\frac{y}{x})$ 形式的一阶微分方程。
+（如： $\frac{dy}{dx}=3\frac{y}{x}+\frac{x}{y}+1$ ）</li>
+</ul>
+<h2 id="fracdydxphifracyx-%E5%9E%8B%E7%9A%84%E8%A7%A3%E6%B3%95br"><strong>· $\frac{dy}{dx}=\phi(\frac{y}{x})$ 型的解法</strong><br></h2>
+<ol>
+<li><font color=#FF4500>令 $u=\frac{y}{x}$ ，将 $y$ 与 $\frac{dy}{dx}$ 用 $u$ 表示</font><br>
+得到 $y=ux, \frac{dy}{dx}=u+x\frac{du}{dx}$ <br></li>
+<li>带回原方程得 $u+x\frac{du}{dx}=\phi(u)$ <br>
+即 $x\frac{du}{dx}=\phi(u)-u=f(u)$ <br>
+即 $\frac{1}{f(u)}du=\frac{1}{x}dx$ （是不是<font color=#FF4500>回到了可分离变量的微分方程的形式</font>）<br></li>
+<li>接下来按着可分离变量的微分方程的解法即可解出:<br>
+$g(u)=\ln{|x|}$ <br></li>
+<li>再将 $u=\frac{y}{x}$ 带回上式即可得到解 $g(\frac{y}{x})=\ln{|x|}$ （可以进一步化简成 $y=\psi(x)+C$ 的形式）<br></li>
+</ol>
+<!-- 换页 -->
+<div STYLE="page-break-after: always;"></div>
+<h2 id="%E7%AC%AC4%E8%8A%82-%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><strong>第4节 一阶线性微分方程</strong></h2>
+<ul>
+<li>
+<p>一阶线性微分方程：形如 $y'+P(x)y=Q(x)$ 的方程<br>
+（如： $y'+(x^{2}+x+1)y=3x$ ）<br></p>
+</li>
+<li>
+<p>齐次线性微分方程：当 $Q(x) \equiv 0$ 时的一阶线性微分方程。<br>
+即形如 $y'+P(x)y=0$ 的方程。<br>
+（ $y'+P(x)y=0$ 的形式）<br>
+（一般称 $y'+P(x)y=0$ 为<font color=#FF4500>对应于</font>非齐次线性微分方程 $y'+P(x)y=Q(x)$ 的齐次线性微分方程）<br></p>
+</li>
+<li>
+<p>非齐次线性微分方程： 当 $Q(x) \equiv 0$ 不成立时的一阶线性微分方程。<br></p>
+</li>
+</ul>
+<h3 id="ypxy0-%E5%9E%8B%E7%9A%84%E8%A7%A3%E6%B3%95br"><strong>· $y'+P(x)y=0$ 型的解法</strong><br></h3>
+<ol>
+<li><font color=#FF4500>分离变量</font>得 $\frac{1}{y}dy=-P(x)dx$ <br></li>
+<li>两端积分得 $\ln{|y|}=-\int{P(x)dx}+C_{1}$ <br>
+即方程的通解 $y=Ce^{-\int{P(x)dx}} \ \ ，(C=\pm C_{1})$ <br></li>
+</ol>
+<h3 id="ypxyqx-%E5%9E%8B%E7%9A%84%E8%A7%A3%E6%B3%95br"><strong>· $y'+P(x)y=Q(x)$ 型的解法</strong><br></h3>
+<ol>
+<li><font color=#FF4500>先解出对应齐次线性微分方程的通解</font>： $y=Ce^{-\int{P(x)dx}}$ <br></li>
+<li>再用<font color=#FF4500>常数变易法</font>将常数 $C$ 替换为未知函数 $u(x)$ <br>
+得到 $y=ue^{-\int{P(x)dx}}$ <br>
+进而 $y'=u'e^{-\int{P(x)dx}} \ -uP(x)e^{-\int{P(x)dx}}$ <br></li>
+<li>带回原方程得 $u'e^{-\int{P(x)dx}} \ =Q(x)$ <br>
+（上式中的 $-uP(x)e^{-\int{P(x)dx}}$ 部分会和原式中的 $P(x)y$ 的部分消掉，<font color=#FF4500>可以用这一性质检验自己当前的计算是否有误</font>）<br></li>
+<li>接下来就可以方便的解出 $u(x)$ <br>
+即 $u'=Q(x)e^{\int{P(x)dx}}$ <br>
+两端积分得 $u=\int{Q(x)e^{\int{P(x)dx}} \ dx}+C$ <br></li>
+<li>再将 $u(x)$ 带回 $y=ue^{-\int{P(x)dx}}$ 就可以得到最后的通解：<br>
+$y=Ce^{-\int{P(x)dx}} \ +e^{-\int{P(x)dx}} \ \cdot \int{Q(x)e^{\int{P(x)dx}} \ dx}$<br>
+（解的特点： <br>
+$y=Ce^{-\int{P(x)dx}}$ 的部分是对应的齐次线性微分方程的通解， <br>
+$e^{-\int{P(x)dx}} \ \cdot \int{Q(x)e^{\int{P(x)dx}}\ dx}$ 的部分是方程的一个特解，有些时候可以用此性质快速得到答案。）<br></li>
+</ol>
+<p>（<font color=#FF4500>注：不建议直接记结论，太过复杂。其实只要掌握关键的步骤就可以顺利的写下完整步骤</font>）<br>
+<br></p>
+<!-- 换页 -->
+<!-- <div STYLE="page-break-after: always;"></div> -->
+<h2 id="%E7%AC%AC5%E8%8A%82-%E5%8F%AF%E9%99%8D%E9%98%B6%E7%9A%84%E9%AB%98%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><strong>第5节 可降阶的高阶微分方程</strong></h2>
+<p>本节讨论了三种高阶微分方程的解法。<br></p>
+<h3 id="%E7%AC%AC1%E7%A7%8D-ynfx-%E5%9E%8B%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8Bbr"><strong>·第1种： $y^{(n)}=f(x)$ 型的微分方程</strong><br></h3>
+<p>  解法：持续对两边同时积分，直到积出 $y=g(x)$ 的形式就方程的通解。<br></p>
+<!-- 换页 -->
+<div STYLE="page-break-after: always;"></div>
+<h3 id="%E7%AC%AC2%E7%A7%8D-yfxy-%E5%9E%8B%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8Bbr"><strong>·第2种： $y''=f(x,y')$ 型的微分方程</strong><br></h3>
+<p>  如： $(1+x^{2})y''=2xy'$ <br>
+ ·解法：<br></p>
+<ol>
+<li><font color=#FF4500>设 $y'=p(x)$ 则 $y''=p'$ </font><br>
+原方程就可化为 $p'=f(x,p)$ （即只和 $x,p$ 有关的一阶微分方程，一般是可分离变量的）<br></li>
+<li>可以解出该方程的通解 $p=y'=g(x,C_{1})$ <br>
+进一步积分得到 $y=\int{g(x,C_{1})dx}+C_{2}$ 的通解形式。<br>
+（<font color=#FF4500>纯看推理非常枯燥，做几道例题结合起来看会容易理解一些。</font>）</li>
+</ol>
+<h3 id="%E7%AC%AC3%E7%A7%8D-yfyy-%E5%9E%8B%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8Bbr"><strong>·第3种： $y''=f(y,y')$ 型的微分方程</strong><br></h3>
+<p> ·解法：</p>
+<ol>
+<li><font color=#FF4500>令 $y'=p$ 则 $y''=\frac{dp}{dy}\cdot\frac{dy}{dx}=p\cdot\frac{dp}{dy}$ </font><br>
+带入原式得 $p\frac{dp}{dy}=f(y,p)$ （一般是可分离变量的）<br></li>
+<li>可以解出该方程的通解 $p=g(y,C_{1})$ <br>
+即 $y'=g(y,C_{1})$ <br></li>
+<li>分离变量并积分得到通解： $\int{\frac{1}{g(y,C_{1})}dy}=x+C_{2}$ <br>
+<br></li>
+</ol>
+<h2 id="%E7%AC%AC6%E8%8A%82-%E9%AB%98%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><strong>第6节 高阶线性微分方程</strong></h2>
+<p>以二阶微分方程为主<br></p>
+<ul>
+<li>高阶微分方程： $y^{(n)}+a_{1}(x)y^{(n-1)} \ +...+a_{n-1}(x)y'+a_{n}(x)y=f(x)$ <br></li>
+<li>二阶微分方程： $y''+P(x)y'+Q(x)=f(x)$ <br></li>
+</ul>
+<h3 id="%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3%E7%9A%84%E7%BB%93%E6%9E%84"><strong>·线性微分方程的解的结构</strong></h3>
+<p>可以联想一下<font color=#FF4500>线性代数中的方程组的解的结构</font>的相关知识。<br></p>
+<ul>
+<li>
+<p>若 $y_{1}(x)$ 与 $y_{2}(x)$ 是<font color=#FF4500>二阶齐次线性微分方程</font> $y''+P(x)y'+Q(x)y=0$ 的两个解<br>
+那么 $y=C_{1}y_{1}+C_{2}y_{2}$ 也是方程的解，其中 $C_{1}，C_{2}$ 为任意常数<br></p>
+</li>
+<li>
+<p>若 $y_{1}(x)$ 与 $y_{2}(x)$ 是<font color=#FF4500>二阶齐次线性微分方程</font> $y''+P(x)y'+Q(x)y=0$ 的<font color=#FF4500>两个线性无关的特解</font><br>
+那么 $y=C_{1}y_{1}+C_{2}y_{2}$ （ $C_{1}，C_{2}$ 为任意常数）就是方程的<font color=#FF4500>通解</font><br></p>
+</li>
+<li>
+<p>若 $y^{\ast}(x)$ 是<font color=#FF4500>二阶非齐次线性微分方程</font> $y''+P(x)y'+Q(x)y=f(x)$ 的一个<font color=#FF4500>特解</font>， $Y(x)$ 是<font color=#FF4500>对应齐次线性微分方程的通解</font><br>
+则 $y=Y+y^{\ast}$ 就是<font color=#FF4500>二阶非齐次线性微分方程的通解</font>。</p>
+</li>
+<li>
+<p>（解的叠加原理）若<br>
+$y_{1}^{\ast}(x)$ 是方程 $y''+P(x)y'+Q(x)y=f_{1}(x)$ 的一个特解<br>
+$y_{2}^{\ast}(x)$ 是方程 $y''+P(x)y'+Q(x)y=f_{2}(x)$ 的一个特解<br>
+则 $y=y_{1}^{\ast}(x)+y_{2}^{\ast}(x)$ 是方程 $y''+P(x)y'+Q(x)y=f_{1}(x)+f_{2}(x)$ 的一个特解<br></p>
+</li>
+<li>
+<p><font color=#FF4500>以上4条结论可以推广到高阶线性微分方程</font><br>
+<br></p>
+</li>
+</ul>
+<!-- 换页 -->
+<div STYLE="page-break-after: always;"></div>
+<h2 id="%E7%AC%AC7%E8%8A%82-%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><strong>第7节 常系数齐次线性微分方程</strong></h2>
+<h3 id="%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B-ypyqy0-%E7%9A%84%E8%A7%A3%E6%B3%95br"><strong>·二阶常系数齐次线性微分方程： $y''+py'+qy=0$ 的解法<br></strong></h3>
+<ol>
+<li>
+<p>写出微分方程对应的特征方程 $r^{2}+pr+q=0$ （ $y$ 换成 $r$ ，阶数换成相同的指数）<br></p>
+</li>
+<li>
+<p>求出特征方程的两个根 $r_{1},r_{2}$ <br></p>
+</li>
+<li>
+<p>根据两个根之间的关系写出通解<br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">$r_{1},r_{2}$ 的关系</th>
+<th style="text-align:left">通解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">两个不相等的实根 $r_{1},r_{2}$</td>
+<td style="text-align:left">$y=C_{1}e^{r_{1}x}+C_{2}e^{r_{2}x}$</td>
+</tr>
+<tr>
+<td style="text-align:left">两个相等的实根 $r_{1}=r_{2}$</td>
+<td style="text-align:left">$y=(C_{1}+C_{2}x)e^{r_{1}x}$</td>
+</tr>
+<tr>
+<td style="text-align:left">一对共轭复根 $r_{1,2}=\alpha \pm \beta{i}$  </td>
+<td style="text-align:left">$y=e^{\alpha{x}}(C_{1}\cos{\beta{x}}+C_{2}\sin{\beta{x}})$</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="n-%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B-yna1yn-1--an-1yany0-%E7%9A%84%E8%A7%A3%E6%B3%95br"><strong>· $n$ 阶常系数齐次线性微分方程： $y^{(n)}+a_{1}y^{(n-1)} \ +...+a_{n-1}y'+a_{n}y=0$ 的解法<br></strong></h3>
+<ol>
+<li>
+<p>写出微分方程对应的特征方程 $r^{n}+a_{1}r^{n-1} \ +...+a_{n-1}r+a_{n}=0$ （ $y$ 换成 $r$ ，阶数换成相同的指数）<br></p>
+</li>
+<li>
+<p>求出特征方程的根 $r_{1},r_{2},...,r_{n}$ <br></p>
+</li>
+<li>
+<p>根据根的种类，对应组合写出通解<br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">根</th>
+<th style="text-align:left">通解中的对应项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">单实根 $r$</td>
+<td style="text-align:left">$Ce^{rx}$</td>
+</tr>
+<tr>
+<td style="text-align:left">一对单复根<br> $r_{1,2}=\alpha \pm \beta{i}$</td>
+<td style="text-align:left">$y=e^{\alpha{x}}(C_{1}\cos{\beta{x}}+C_{2}\sin{\beta{x}})$</td>
+</tr>
+<tr>
+<td style="text-align:left">$k$ 重实根 $r$</td>
+<td style="text-align:left">$e^{rx}(C_{1}+C_{2}x+...+C_{k}x^{k-1})$</td>
+</tr>
+<tr>
+<td style="text-align:left">一对 $k$ 重 复根<br> $r_{1,2}=\alpha \pm \beta{i}$</td>
+<td style="text-align:left">$y=e^{\alpha{x}}[(C_{1}+C_{2}x+...+C_{k}x^{k-1})\cos{\beta{x}}+(D_{1}+D_{2}x+...+D_{k}x^{k-1})\sin{\beta{x}}]$</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<br>
+<h2 id="%E7%AC%AC8%E8%8A%82-%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%9D%9E%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><strong>第8节 常系数非齐次线性微分方程</strong></h2>
+<p>主要讲述二阶常系数非齐次线性微分方程在2种常见形式下的解法</p>
+<ul>
+<li>
+<p>二阶常系数非齐次线性微分方程： $y''+py'+qy=f(x)$ <br></p>
+</li>
+<li>
+<p>二阶常系数非齐次线性微分方程的通解 $y=Y(x)+y^{\ast}(x)$  <br>
+$Y(x)$ 是对应齐次方程的通解（用上一节的方法求出）<br>
+$y^{\ast}(x)$ 是方程的一个特解（本节重点）<br></p>
+</li>
+</ul>
+<br>
+<!-- 换页 -->
+<div STYLE="page-break-after: always;"></div>
+<h3 id="fxelambdaxpmx-%E5%9E%8B-pmxa0xma1xm-1am-1xam-br"><strong>·$f(x)=e^{\lambda{x}}P_{m}(x)$ 型（ $P_{m}(x)=a_{0}x^{m}+a_{1}x^{m-1}+...+a_{m-1}x+a_{m}$ ）<br></strong></h3>
+<p>方程的特解为 $y^{\ast}=x^{k}R_{m}(x)e^{\lambda{x}}$ （ $R_{m}(x)=b_{0}x^{m}+b_{1}x^{m-1}+...+b_{m-1} \ x+b_{m}$ ）<br>
+当 $\lambda$ 分别 <font color=#FF4500>不是特征方程的根、是特征方程的单根、是特征方程重根</font> 时， $k$ 分别取 $0,1,2$ <br>
+（简明原因：将特解 $y^{\ast}=R_{m}(x)e^{\lambda{x}}$ 带入方程后<br>得 $R_{m}''(x)+(2\lambda+p)R_{m}'(x)+(\lambda^{2}+p\lambda+q)R_{m}(x)=P_{m}(x)$ <br>
+当 $\lambda$ 不是特征方程的根时， $2\lambda+p$ 和 $\lambda^{2}+p\lambda+q$ 均不为 $0$ ，所以左右两端已经相等， $k$ 取 $0$ <br>
+当 $\lambda$ 是特征方程的单根时， $\lambda^{2}+p\lambda+q=0$ ，所以 $k$ 取 $1$ 补上 $1$ 次使左右两端相等<br>
+当 $\lambda$ 是特征方程的重根时， $2\lambda+p$ 和 $\lambda^{2}+p\lambda+q$ 均为 $0$ ，所以 $k$ 取 $2$ 补上 $2$ 次使左右两端相等）</p>
+<br>
+<h3 id="fxelambdaxplxcosomegaxqnxsinomegax-%E5%9E%8B"><strong>· $f(x)=e^{\lambda{x}}[P_{l}(x)\cos{\omega{x}}+Q_{n}(x)\sin{\omega{x}}]$ 型</strong></h3>
+<p>方程的特解为 $y^{\ast}=x^{k}e^{\lambda{x}}[A_{m}(x)\cos{\omega{x}}+B_{m}(x)\sin{\omega{x}}]$ （ $m=\max{(l,n)}$ ） <br>
+当 $\lambda+\omega{i}$ 分别 <font color=#FF4500>不是特征方程的根、是特征方程的单根</font> 时， $k$ 分别取 $0,1$ <br></p>
+</font>
+<!-- </p>
+</body>
+</html> -->
+
+</body>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>第4章 不定积分.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<font face='宋体'>
+<font color=#FF4500></font>
+<!-- 第1页 -->
+<h1 id="%E7%AC%AC4%E7%AB%A0-%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><strong>第4章 不定积分</strong></h1>
+<h2 id="%E7%AC%AC1%E8%8A%82-%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8"><strong>第1节 不定积分的概念与性质</strong></h2>
+<p>简单概括一下：<font color=#FF4500>积分就是微分的逆运算</font>，微分是已知 $f(x)$ 求 $f'(x)dx$ ，积分是已知 $f'(x)dx$ 求 $f(x)$ 。<br></p>
+<h3 id="%E5%8E%9F%E5%87%BD%E6%95%B0%E4%B8%8E%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%A6%82%E5%BF%B5"><strong>原函数与不定积分的概念</strong></h3>
+<ul>
+<li>
+<p>原函数：如果在区间 $I$ 上，可导函数 $F(x)$ 的导函数为 $f(x)$ ，即对任一 $x\in{I}$ ，都有 $F'(x)=f(x)$ 或 $dF(x)=f(x)dx$ 那么函数 $F(x)$ 就称为 $f(x)$ （或 $f(x)dx$ ）在区间 $I$ 上的一个<font color=#FF4500>原函数</font><br>
+（简单来说，一个函数是其导数的原函数）<br></p>
+</li>
+<li>
+<p>不定积分：在区间 $I$ 上，函数 $f(x)$ 的带有任意常数项的原函数称为 $f(x)$ （或 $f(x)dx$ ）在区间 $I$ 上的不定积分，记作 $\int{f(x)dx}$ <br></p>
+</li>
+<li>
+<p>记号 $\int$ 为<font color=#FF4500>积分号</font>， $f(x)$ 为<font color=#FF4500>被积函数</font>， $f(x)dx$ 为<font color=#FF4500>被积表达式</font>， $x$ 为<font color=#FF4500>积分变量</font>。<br></p>
+</li>
+<li>
+<p>连续函数一定有原函数<br></p>
+</li>
+</ul>
+<h3 id="%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8"><strong>不定积分的性质</strong></h3>
+<ol>
+<li>$\int{[f(x)+g(x)]dx}=\int{f(x)dx}+\int{g(x)dx}$ <br></li>
+<li>$\int{kf(x)dx}=k\int{f(x)dx}$ <br></li>
+<li>$d\int{f(x)dx}=f(x)$ <br></li>
+</ol>
+<br>
+<h2 id="%E7%AC%AC2%E8%8A%82-%E6%8D%A2%E5%85%83%E7%A7%AF%E5%88%86%E6%B3%95"><strong>第2节 换元积分法</strong></h2>
+<h3 id="%E7%AC%AC1%E7%B1%BB%E6%8D%A2%E5%85%83%E6%B3%95%E5%87%91%E5%BE%AE%E5%88%86%E6%B3%95"><strong>·第1类换元法（凑微分法）</strong></h3>
+<ul>
+<li>$\int{f[g(x)]g'(x)dx}=\int{f(u)du},u=g(x)$ <br></li>
+</ul>
+<h3 id="%E7%AC%AC2%E7%B1%BB%E6%8D%A2%E5%85%83%E6%B3%95%E8%AE%BE%E5%BE%AE%E5%88%86%E6%B3%95"><strong>·第2类换元法（设微分法）</strong></h3>
+<ul>
+<li>$\int{f(x)dx}=\int{f[g(t)]g'(t)dt},t=g^{-1}(x)$ <br></li>
+<li>常用代换：<br>
+$\sqrt{a^{2}-x^{2}} \Longrightarrow x=a\sin{t}$ <br>
+$\sqrt{a^{2}+x^{2}} \Longrightarrow x=a\tan{t}$ <br>
+$\sqrt{x^{2}-a^{2}} \Longrightarrow x=a\sec{t}$ <br></li>
+</ul>
+<br>
+<h2 id="%E7%AC%AC3%E8%8A%82-%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E6%B3%95"><strong>第3节 分部积分法</strong></h2>
+<ul>
+<li>$\int{uv'dx}=uv-\int{u'vdx}$ <br>
+通常用于当<font color=#FF4500> $\int{uv'dx}$ 求起来比较困难</font>，而<font color=#FF4500> $\int{u'vdx}$ 求起来比较容易</font>的时候。<br>
+常见场景：</li>
+</ul>
+<ol>
+<li>被积函数为 $x^{k}\sin{x},x^{k}\cos{x},x^{k}e^{x}$ 的形式时，可以用分部积分降幂。<br></li>
+</ol>
+<!-- 换页 -->
+<div STYLE="page-break-after: always;"></div>
+<!-- 第2页 -->
+<ol start="2">
+<li>
+<p>被积函数为 $x^{k}\arcsin{x},x^{k}\arccos{x},x^{k}\arctan{x},x^{k}\log_{\alpha}{x}$ 的形式时，可以用分部积分化去反三角函数和对数。<br></p>
+</li>
+<li>
+<p>被积函数为 $e^{x}\sin{x},e^{x}\cos{x}$ 的形式时，可以用分部积分两次来形成周期求出解。<br></p>
+</li>
+</ol>
+<br>
+<h2 id="%E7%AC%AC4%E8%8A%82-%E6%9C%89%E7%90%86%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><strong>第4节 有理函数的积分</strong></h2>
+<h3 id="%E6%9C%89%E7%90%86%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><strong>·有理函数的积分</strong></h3>
+<p>化成真分式，分成多个项之和，分别求积分。<br></p>
+<h3 id="%E5%8F%AF%E5%8C%96%E4%B8%BA%E6%9C%89%E7%90%86%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><strong>·可化为有理函数的积分</strong></h3>
+<p>先变量替换化成有理函数，然后参照上面方法求解。<br>
+<br></p>
+<h2 id="%E7%AC%AC5%E8%8A%82-%E7%A7%AF%E5%88%86%E8%A1%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><strong>第5节 积分表的使用</strong></h2>
+<p>无脑查表。</p>
+</font>
+</body>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+
+</html>

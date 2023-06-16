@@ -1,0 +1,326 @@
+\documentclass{article} %article 文档
+\usepackage{ctex}  %使用宏包(为了能够显示汉字)
+\usepackage[hidelinks]{hyperref}
+\usepackage{color}
+\title{高等数学笔记}  %文章标题
+\author{}   %作者的名称
+\date{}       %日期
+% 设置页面的环境,a4纸张大小，左右上下边距信息
+\usepackage[a4paper,left=10mm,right=10mm,top=15mm,bottom=15mm]{geometry}  
+\begin{document} %正文部分
+\maketitle          %添加这一句才能够显示标题等信息
+
+%目录页
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+\setcounter{page}{1}
+
+
+
+\section{向量代数与空间解析几何}
+\subsection{向量及其线性运算}
+\subsubsection{向量的概念}
+\begin{description}
+    \item[向量]{既有大小，又有方向的量。记作$\overrightarrow{a}$} 
+    \item[模]{向量的大小。记作$|\overrightarrow{a}|$} 
+    \item[$\overrightarrow{a}$与$\overrightarrow{b}$的夹角]{记作$\widehat{(\overrightarrow{a},\overrightarrow{b})}$，$\widehat{(\overrightarrow{a},\overrightarrow{b})}\in[0,\pi]$} 
+\end{description}
+
+若$\widehat{(\overrightarrow{a},\overrightarrow{b})}=0$或$\pi$，则$\overrightarrow{a}//\overrightarrow{b}$\par
+若$\widehat{(\overrightarrow{a},\overrightarrow{b})}=\frac{\pi}{2}$，则$\overrightarrow{a}\bot \overrightarrow{b}$\par
+
+\subsubsection{向量的线性运算}
+\begin{enumerate}
+\item \textbf{向量的加减法}\par
+\textbf{运算规律：}\par
+\begin{enumerate}
+    \item 交换律：$\overrightarrow{a}+\overrightarrow{b}=\overrightarrow{b}+\overrightarrow{a}$
+    \item 结合律：$(\overrightarrow{a}+\overrightarrow{b})+\overrightarrow{c}
+    =\overrightarrow{a}+(\overrightarrow{b}+\overrightarrow{c})$
+\end{enumerate}
+\textbf{三角不等式：}\par
+$|\overrightarrow{a}\pm \overrightarrow{b}|\leq 
+|\overrightarrow{a}|+|\overrightarrow{b}|
+$
+
+\item \textbf{向量的数乘}\par
+\textbf{运算规律：}\par
+\begin{enumerate}
+    \item 结合律：$\lambda(\mu\overrightarrow{a})
+    =\mu(\lambda\overrightarrow{a})
+    =(\lambda\mu)\overrightarrow{a}
+    $
+    \item 分配律：\begin{tabular}{l}
+        $(\lambda+\mu) \overrightarrow{a}=\lambda\overrightarrow{a}+\mu \overrightarrow{a}$\\
+        $\lambda(\overrightarrow{a}+\overrightarrow{b})=\lambda\overrightarrow{a}+\lambda \overrightarrow{a}$
+    \end{tabular}
+\end{enumerate}
+\end{enumerate}
+
+$\overrightarrow{a}//\overrightarrow{b}\Leftrightarrow \overrightarrow{a}=\lambda\overrightarrow{b}$
+
+\subsubsection{空间直角坐标系}
+
+\subsubsection{利用坐标做向量的线性运算}
+\begin{enumerate}
+    \item 定比分点\\$M$位于$A(x_1,y_1,z_1),B(x_2,y_2,z_2)$中间，且$\overrightarrow{AM}=\lambda\overrightarrow{MB}$\\
+    则$M(\frac{x_1+\lambda x_2}{1+\lambda},\frac{y_1+\lambda y_2}{1+\lambda},\frac{z_1+\lambda z_2}{1+\lambda})$
+\end{enumerate}
+
+\subsubsection{向量的模、方向角、投影}
+\begin{enumerate}
+    \item \textbf{向量的模与两点间的距离公式}\\
+    $|\overrightarrow{a}|=\sqrt{x^2+y^2+z^2}$\\
+    $|AB|=|\overrightarrow{AB}|=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2}$
+
+    \item \textbf{方向角与方向余弦}
+    \begin{description}
+        \item[方向角]{$\overrightarrow{a}$与坐标轴$x,y,z$分别所成的角$\alpha,\beta,\gamma$}
+        \item[方向余弦]{$\cos\alpha,\cos\beta,\cos\gamma$} 
+    \end{description}
+    $\displaystyle(\cos\alpha,\cos\beta,\cos\gamma)=(\frac{x}{|\overrightarrow{a}|},\frac{y}{|\overrightarrow{a}|},\frac{z}{|\overrightarrow{a}|})$\\
+    $\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1$
+
+    \item \textbf{向量在轴上的投影}\\
+    $\displaystyle a_x=Prj_{\overrightarrow{i}}\overrightarrow{a}=(\overrightarrow{a})_x,a_y=Prj_{\overrightarrow{j}}\overrightarrow{a}=(\overrightarrow{a})_y,a_z=Prj_{\overrightarrow{k}}\overrightarrow{a}=(\overrightarrow{a})_z$
+    \begin{description}
+        \item [性质1]{$(\overrightarrow{a})_u=|\overrightarrow{a}|cos\phi$，其中$\phi$为$\overrightarrow{a}$与坐标轴$u$的夹角}
+        \item [性质2]{$(\overrightarrow{a}+\overrightarrow{b})_u=(\overrightarrow{a})_u+(\overrightarrow{b})_u$}
+        \item [性质3]{$(\lambda\overrightarrow{a})_u=\lambda(\overrightarrow{a})_u$}
+    \end{description}
+\end{enumerate}
+
+\subsection{数量积、向量积、*混合积}
+\subsubsection{两向量的数量积}
+\begin{enumerate}
+    \item \textbf{计算}\\
+    $\overrightarrow{a}\cdot\overrightarrow{b}=|\overrightarrow{a}||\overrightarrow{b}|\cos\theta\\
+    =|\overrightarrow{a}||\overrightarrow{b}|\cos\widehat{(\overrightarrow{a},\overrightarrow{b})}\\
+    =|\overrightarrow{a}|Prj_{\overrightarrow{a}}\overrightarrow{b}\\
+    =a_xb_x+a_yb_y+a_zb_z$
+
+    \item \textbf{性质}\begin{enumerate}
+        \item $\overrightarrow{a}\cdot\overrightarrow{b}=|\overrightarrow{a}|^2$
+        \item $\overrightarrow{a}\bot \overrightarrow{b}\Leftrightarrow\overrightarrow{a}\cdot\overrightarrow{b}=0$
+    \end{enumerate}
+
+    \item \textbf{运算规律}\begin{enumerate}
+        \item 交换律 $\overrightarrow{a}\cdot\overrightarrow{b}=\overrightarrow{b}\cdot\overrightarrow{a}$
+        \item 分配律 $(\overrightarrow{a}+\overrightarrow{b})\cdot\overrightarrow{c}=\overrightarrow{a}\cdot\overrightarrow{c}+\overrightarrow{b}\cdot\overrightarrow{c}$
+        \item 结合律 $(\lambda\overrightarrow{a})\cdot\overrightarrow{b}=\lambda(\overrightarrow{a}\cdot\overrightarrow{b})$
+    \end{enumerate}
+    \item \textbf{向量夹角}\\$\cos\theta=\frac{\overrightarrow{a}\cdot\overrightarrow{b}}{|\overrightarrow{a}||\overrightarrow{b}|}$
+\end{enumerate}
+\subsubsection{两向量的向量积}
+\begin{enumerate}
+    \item \textbf{计算}\\
+    $|\overrightarrow{c}|=|\overrightarrow{a}||\overrightarrow{b}|\sin\theta$，$\overrightarrow{c}$的方向由右手规则（握拳时四指旋转方向夹角小于$\pi$时大拇指指向的方向）确定\\
+    $\overrightarrow{c}=\overrightarrow{a}\times \overrightarrow{b}
+    =\left|
+        \begin{array}{ccc}
+            \overrightarrow{i} & \overrightarrow{j} & \overrightarrow{k} \\
+            a_x & a_y & a_z \\
+            b_x & b_y & b_z \\
+        \end{array}
+    \right|
+    $\\
+
+    \item \textbf{性质}\begin{enumerate}
+        \item $\overrightarrow{a}\times\overrightarrow{b}=0$
+        \item $\overrightarrow{a}// \overrightarrow{b}\Leftrightarrow\overrightarrow{a}\times\overrightarrow{b}=0$
+    \end{enumerate}
+
+    \item \textbf{运算规律}\begin{enumerate}
+        \item $\overrightarrow{a}\times\overrightarrow{b}=-\overrightarrow{b}\times\overrightarrow{a}$
+        \item 分配律 $(\overrightarrow{a}+\overrightarrow{b})\times\overrightarrow{c}=\overrightarrow{a}\times\overrightarrow{c}+\overrightarrow{b}\times\overrightarrow{c}$
+        \item 结合律 $(\lambda\overrightarrow{a})\times\overrightarrow{b}=\overrightarrow{a}\times(\lambda\overrightarrow{b})=\lambda(\overrightarrow{a}\times\overrightarrow{b})$
+    \end{enumerate}
+
+\end{enumerate}
+\subsubsection{*向量的混合积}
+$(\overrightarrow{a}\times\overrightarrow{b})\cdot\overrightarrow{c}=
+\left|\begin{array}{ccc}
+    a_x & a_y & a_z \\
+    b_x & b_y & b_z \\
+    c_x & c_y & c_z \\
+\end{array}\right|
+$
+
+\textbf{性质：}$(\overrightarrow{a}\times\overrightarrow{b})\cdot\overrightarrow{c}=0 \Leftrightarrow
+\overrightarrow{a},\overrightarrow{b},\overrightarrow{c}$共面
+
+\subsection{平面及其方程}
+\subsubsection{曲面方程与空间曲线方程的概念}
+\begin{enumerate}
+    \item \textbf{曲面方程}\\若曲面$S$与方程$F(x,y,z)=0$有如下关系：
+    \begin{enumerate}
+        \item 曲面$S$上任意一点都满足方程
+        \item 曲面$S$外任意一点都不满足方程
+    \end{enumerate}
+
+    那么方程$F(x,y,z)=0$就叫做\textcolor{red}{曲面$S$的方程}\\
+    曲面$S$就叫做\textcolor{red}{方程$F(x,y,z)=0$的图形}
+
+    \item \textbf{曲线方程}\\
+    空间曲线$C$的方程
+    $\left\{\begin{array}{l}
+        F(x,y,z)=0\\
+        G(x,y,z)=0
+    \end{array}
+    \right.
+    $
+\end{enumerate}
+
+\subsubsection{平面的方程}
+\begin{description}
+    \item [平面的点法式方程]{\textcolor{red}{$A(x-x_0)+B(y-y0)+C(z-z_0)=0$}，已知平面$\Pi$上一点$M_0(x_0,y_0,z_0)$和一个法向量$\overrightarrow{n}=(A,B,C)$}
+    \item [平面的三点式方程]{\textcolor{red}{$\left|\begin{array}{ccc}
+        x-x_0 & y-y_0 & z-z_0 \\
+        x_1-x_0 & y_1-y_0 & z_1-z_0 \\
+        x_2-x_0 & y_2-y_0 & z_2-z_0 \\
+        \end{array}\right|$}，已知平面$\Pi$上3点$M_0(x_0,y_0,z_0),M_1(x_1,y_1,z_1),M_2(x_2,y_2,z_2)$}
+    \item [平面的截距式方程]{\textcolor{red}{$\displaystyle\frac{x}{a}+\frac{y}{b}+\frac{z}{c}=1$}，已知平面$\Pi$在$x$轴$y$轴$z$轴上的截距分别为$a,b,c$}
+    \item [平面的一般式方程]{\textcolor{red}{$Ax+By+Cz+D=0$}}
+\end{description}
+
+
+\subsubsection{两平面的夹角}
+定义：两平面的法线向量的夹角$\theta$（通常指锐角或直角）\par
+平面$\Pi_1,\Pi_2$的法向量分别为$\overrightarrow{n_1}=(A_1,B_1,C_1),\overrightarrow{n_2}=(A_2,B_2,C_2)$\par
+则$\Pi_1,\Pi_2$之间的夹角的余弦值为\textcolor{red}{$\displaystyle\cos\theta={|A_1A_2+B_1B_2+C_1C_2|\over\sqrt{A_1^2+B_1^2+C_1^2}\sqrt{A_2^2+B_2^2+C_2^2}}$}\par
+
+\textbf{性质}
+\begin{enumerate}
+    \item $\Pi_1\bot\Pi_2 \Leftrightarrow A_1A_2+B_1B_2+C_1C_2=0$
+    \item $\displaystyle\Pi_1//\Pi_2 \Leftrightarrow\frac{A_1}{A_2}=\frac{B_1}{B_2}=\frac{C_1}{C_2}$
+\end{enumerate}
+
+\subsubsection{点到平面的距离}
+已知点$M(x_0,y_0,z_0)$、平面方程$Ax+By+Cz+D=0$\par
+则点到平面度的距离\textcolor{red}{$\displaystyle d={|Ax_0+By_0+Cz_0+D| \over \sqrt{A^2+B^2+C^2}}$}
+
+\subsection{空间直线及其方程}
+\subsubsection{空间直线的方程}
+\begin{description}
+    \item[一般式方程]{\textcolor{red}{
+    $\left\{\begin{array}{l}
+        A_1x+B_1y+C_1z+D_1=0 \\
+        A_2x+B_2y+C_2z+D_2=0 \\
+    \end{array}\right.$}
+    }
+
+    \item[对称式方程]{\textcolor{red}{
+    $\displaystyle\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}$}
+    ，已知方向向量$\overrightarrow{s}=(m,n,p)$，直线上一点$M_0(x_0,y_0,z_0)$
+    }
+
+    \item[参数式方程]{\textcolor{red}{
+    $\left\{\begin{array}{l}
+        x=x_0+mt \\
+        y=y_0+nt \\
+        z=z_0+pt \\
+    \end{array}\right.$}
+    ，其中$\displaystyle\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}=t$
+    }
+
+\end{description}
+
+\subsubsection{两直线的夹角}
+定义：两直线的方向向量的夹角$\theta$（通常指锐角或直角）\par
+直线$L_1,L_2$的方向向量分别为$\overrightarrow{s_1}=(A_1,B_1,C_1),\overrightarrow{n_2}=(A_2,B_2,C_2)$\par
+则$L_1,L_2$之间的夹角的余弦值为\textcolor{red}{$\displaystyle\cos\theta={|A_1A_2+B_1B_2+C_1C_2|\over\sqrt{A_1^2+B_1^2+C_1^2}\sqrt{A_2^2+B_2^2+C_2^2}}$}\par
+
+\subsubsection{直线与平面的夹角}
+定义：当直线与平面不垂直时，直线和它在平面上的投影直线的夹角$\theta(0\leq \theta<\frac{\pi}{2})$\par
+直线$L$的方向向量为$\overrightarrow{s}=(a,b,c)$，平面$\Pi$的法向量为$\overrightarrow{n}=(A,B,C)$\par
+则$L,\Pi$之间的夹角的正弦值为\textcolor{red}{$\displaystyle\sin\theta={|Aa+Bb+Cc|\over\sqrt{A^2+B^2+C^2}\sqrt{a^2+b^2+c^2}}$}\par
+
+\subsection{曲面及其方程}
+\subsubsection{旋转曲面}
+\begin{description}
+    \item[旋转曲面] {一条平面曲线绕其平面上的一条直线旋转一周所成的曲面}
+    \item[母线] {旋转的曲线}
+    \item[轴] {定直线}
+\end{description}
+
+\subsubsection{柱面}
+\begin{description}
+    \item[柱面] {直线$L$沿定曲线$C$平移形成的轨迹}
+    \item[母线] {定曲线$C$}
+    \item[准线] {动直线$L$}
+\end{description}
+
+\subsubsection{二次曲面}
+\begin{enumerate}
+    \item \textbf{椭圆锥面}\hspace{2mm}
+    \textcolor{red}{$\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}=z^2$}
+
+    \item \textbf{椭球面}\hspace{2mm}
+    \textcolor{red}{$\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$}
+
+    \item \textbf{单叶双曲面}\hspace{2mm}
+    \textcolor{red}{$\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1$}
+
+    \item \textbf{双叶双曲面}\hspace{2mm}
+    \textcolor{red}{$\displaystyle\frac{x^2}{a^2}-\frac{y^2}{b^2}-\frac{z^2}{c^2}=1$}
+
+    \item \textbf{椭圆抛物面}\hspace{2mm}
+    \textcolor{red}{$\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}=z$}
+
+    \item \textbf{双曲抛物面}\hspace{2mm}
+    \textcolor{red}{$\displaystyle\frac{x^2}{a^2}-\frac{y^2}{b^2}=z$}
+
+    \item \textbf{椭圆柱面}
+    \item \textbf{双曲柱面}
+    \item \textbf{抛物柱面}
+\end{enumerate}
+
+\subsection{空间曲线及其方程}
+\subsubsection{空间曲线的方程}
+\begin{itemize}
+    \item \textbf{一般方程}\hspace{2mm}\textcolor{red}{
+        $\left\{\begin{array}{l}
+            F(x,y,z)=0 \\
+            G(x,y,z)=0 \\
+        \end{array}\right.$
+    }
+
+    \item \textbf{参数方程}\hspace{2mm}\textcolor{red}{
+        $\left\{\begin{array}{l}
+            x=x(t) \\
+            y=y(t) \\
+            z=z(t) \\
+        \end{array}\right.$
+    }
+\end{itemize}
+
+\subsubsection{空间曲线在坐标面上的投影}
+求法：将不需要的维度消掉，得到柱面公式，再令该维度为0即可得到
+\begin{itemize}
+    \item \textbf{在$xOy$平面上的投影}\hspace{2mm}\textcolor{red}{
+        $\left\{\begin{array}{l}
+            H(x,y)=0 \\
+            z=0 \\
+        \end{array}\right.$
+    }
+
+    \item \textbf{在$xOz$平面上的投影}\hspace{2mm}\textcolor{red}{
+        $\left\{\begin{array}{l}
+            H(x,z)=0 \\
+            y=0 \\
+        \end{array}\right.$
+    }
+
+    \item \textbf{在$yOz$平面上的投影}\hspace{2mm}\textcolor{red}{
+        $\left\{\begin{array}{l}
+            H(y,z)=0 \\
+            x=0 \\
+        \end{array}\right.$
+    }
+\end{itemize}
+
+
+\end{document}
+
+% \hspace{1cm}

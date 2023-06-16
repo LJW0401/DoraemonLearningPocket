@@ -1,0 +1,126 @@
+\documentclass{article} %article 文档
+\usepackage{ctex}  %使用宏包(为了能够显示汉字)
+\usepackage[hidelinks]{hyperref}
+\usepackage{color}
+\usepackage{amsmath}  %公式符号包
+
+\title{高等数学笔记}  %文章标题
+\author{}   %作者的名称
+\date{}       %日期
+% 设置页面的环境,a4纸张大小，左右上下边距信息
+\usepackage[a4paper,left=10mm,right=10mm,top=15mm,bottom=15mm]{geometry}  
+\begin{document} %正文部分
+\maketitle          %添加这一句才能够显示标题等信息
+
+%目录页
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+\setcounter{page}{1}
+
+
+
+
+
+%正文
+\section{曲线积分与曲面积分}
+\subsection{对弧长的曲线积分}
+\subsubsection{对弧长的曲线积分的概念与性质}
+第一类曲线积分，记为$\displaystyle \int_Lf(x,y)ds$，$\displaystyle\int_\Gamma f(x,y,z)ds$\par
+若曲线是闭合的，记为$\displaystyle \oint_Lf(x,y)ds$\par
+性质
+\begin{enumerate}
+    \item $\displaystyle \int_L [\alpha f(x,y)+\beta g(x,y)]ds= \alpha\int_L f(x,y)ds+\beta\int_L g(x,y)ds$
+    \item $\displaystyle \int_Lf(x,y)ds=\int_{L_1}f(x,y)ds+\int_{L_2}f(x,y)ds$
+    \item 若$f(x,y)\leq g(x,y)$，则$\displaystyle\int_L f(x,y)ds\leq\int_Lg(x,y)ds$\\
+        $\displaystyle\left|\int_Lf(x,y)ds\right|=\int_L|f(x,y)|ds$
+\end{enumerate}
+
+\subsubsection{对弧长的曲线积分的计算法}
+若曲线$L$的参数方程为$\left\{\begin{array}{ll}
+x=g(t)\\
+y=h(t)
+\end{array}\right.$\par
+则曲线积分$\displaystyle \int_L f(x,y)ds=\int_{\alpha}^{\beta}f[g(t),h(t)]\sqrt{g'^2(t)+h'^2(t)}dt,(\alpha<\beta)$
+
+\subsection{对坐标的曲线积分}
+\subsubsection{对坐标的曲线积分的概念与性质}
+第二类积分，对函数$\vec{F}(x,y)=P(x,y)\vec{i}+Q(x,y)\vec{j}$\par
+$P(x,y)$在$L$上对$x$坐标的曲线积分为$\displaystyle \int_L P(x,y)dx$（L在x方向上的积分）\par
+$Q(x,y)$在$L$上对$y$坐标的曲线积分为$\displaystyle \int_L Q(x,y)dy$（L在y方向上的积分）\par
+对空间函数同理\par
+\vspace{5mm}
+本积分主要应用于向量函数的积分\par
+$\displaystyle \int_L\vec{F}(x,y)d\vec{r}=\int_{L}[P(x,y)dx+Q(x,y)dy]$
+其中$d\vec{r}=dx\vec{i}+d\vec{j}$\par
+
+\vspace{5mm}
+\textbf{性质}
+\begin{enumerate}
+    \item $\alpha,\beta$为常数，则
+        $$\displaystyle \int_L[\alpha\vec{F_1}(x,y)d\vec{r}+\beta\vec{F_2}(x,y)d\vec{r}]=
+        \alpha\int_{L}\vec{F_1}(x,y)d\vec{r}+\beta\int_{L}\vec{F_2}(x,y)d\vec{r}$$
+
+    \item 若有向曲线弧$L$可分成两段光滑的有向曲线弧$L_1,L_2$，则
+        $$\int_L\vec{F}(x,y)d\vec{r}=\int_{L_1}\vec{F}(x,y)d\vec{r}+\int_{L_2}\vec{F}(x,y)d\vec{r}$$
+    
+    \item $L^-$是$L$的反向曲线弧，则
+        $$\int_{L^-}\vec{F}(x,y)d\vec{r}=-\int_{L}\vec{F}(x,y)d\vec{r}$$
+        \textcolor{red}{注：由此可知，在对坐标曲线积分时，我们必须注意积分弧段的方向}
+\end{enumerate}
+
+\subsubsection{对坐标的曲线积分的计算法}
+$L$的参数方程为$\left\{\begin{array}{ll}
+    x=g(t)\\
+    y=h(t)
+\end{array}\right.$\par
+$\displaystyle \int_{L}[P(x,y)dx+Q(x,y)dy]=\int_{\alpha}^{\beta}\{P[g(t),h(t)]g'(t)+Q[g(t),h(t)]h'(t)\}dt$
+\par
+\vspace{3mm}
+计算时，只要把$x,y,dx,dy$依次替换为$g(t),h(t),g'(t)dt,h'(t)dt$然后从起点到终点积分即可。\par
+\textcolor{red}{注意：下限$\alpha$ 对应于 $L$ 的起点，上限$\beta$ 对应于$L$的终点，$\alpha$不一定小于$\beta$}
+\par
+\vspace{5mm}
+空间曲线计算同理
+
+\subsubsection{两类曲线积分之间的联系}
+$\displaystyle \int_L Pdx+Qdy=\int_L(P\cos\alpha+Q\cos\beta)ds$
+\par
+\vspace{5mm}
+% 用向量的形式表示为
+% $$
+
+
+\subsection{格林公式及其应用}
+\subsubsection{格林公式}
+在平面$D$上的二重积分可以通过沿闭区域$D$的边界曲线$L$上的曲线积分来表示。
+\begin{itemize}
+    \item 单连通区域：无洞的区域
+    \item 复连通区域：有洞的区域
+\end{itemize}
+\par
+格林公式：$\displaystyle \iint_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dxdy=\oint_L Pdx+Qdy$
+\par
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{}
+\subsection{}
+\subsubsection{}
+
+\end{document}
