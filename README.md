@@ -8,12 +8,12 @@
 
 ## 文件结构
 
-大一上<br>
+[大一上](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A)<br>
 &emsp;&emsp;形势与政策1<br>
 &emsp;&emsp;大学生心理健康教育1<br>
 &emsp;&emsp;体育1<br>
 &emsp;&emsp;工科数学分析Ⅰ<br>
-&emsp;&emsp;线性代数A<br>
+&emsp;&emsp;[线性代数A](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0A)<br>
 &emsp;&emsp;计算机科学导论<br>
 &emsp;&emsp;程序设计--C语言<br>
 &emsp;&emsp;俄语B1<br>
