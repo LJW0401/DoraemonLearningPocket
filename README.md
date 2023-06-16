@@ -14,9 +14,9 @@
 &emsp;&emsp;体育1<br>
 &emsp;&emsp;[工科数学分析Ⅰ](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E5%B7%A5%E7%A7%91%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E2%85%A0)<br>
 &emsp;&emsp;[线性代数A](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0A)<br>
-&emsp;&emsp;计算机科学导论<br>
-&emsp;&emsp;程序设计--C语言<br>
-&emsp;&emsp;[俄语B1]()<br>
+&emsp;&emsp;[计算机科学导论]()<br>
+&emsp;&emsp;[程序设计--C语言]()<br>
+&emsp;&emsp;[俄语B1](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E4%BF%84%E8%AF%ADB1)<br>
 &emsp;&emsp;大学英语A（1）<br>
 &emsp;&emsp;中国近现代史纲要<br>
 
@@ -35,7 +35,7 @@
 &emsp;&emsp;[物理实验Ⅰ](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8B/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E2%85%A0)<br>
 &emsp;&emsp;[离散数学](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8B/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6)<br>
 &emsp;&emsp;[概率论与数理统计](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8B/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1)<br>
-&emsp;&emsp;[俄语 B2]()<br>
+&emsp;&emsp;[俄语 B2](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8B/%E4%BF%84%E8%AF%AD%20B2)<br>
 &emsp;&emsp;大学英语A（2）<br>
 &emsp;&emsp;思想道德与法治<br>
 
