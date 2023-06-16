@@ -14,8 +14,8 @@
 &emsp;&emsp;体育1<br>
 &emsp;&emsp;[工科数学分析Ⅰ](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E5%B7%A5%E7%A7%91%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E2%85%A0)<br>
 &emsp;&emsp;[线性代数A](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0A)<br>
-&emsp;&emsp;[计算机科学导论]()<br>
-&emsp;&emsp;[程序设计--C语言]()<br>
+&emsp;&emsp;[计算机科学导论](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E5%AF%BC%E8%AE%BA)<br>
+&emsp;&emsp;[程序设计--C语言](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1--C%E8%AF%AD%E8%A8%80)<br>
 &emsp;&emsp;[俄语B1](https://gitee.com/SMBU-POLARBEAR/DoraemonLearningPocket/tree/master/%E5%A4%A7%E4%B8%80%E4%B8%8A/%E4%BF%84%E8%AF%ADB1)<br>
 &emsp;&emsp;大学英语A（1）<br>
 &emsp;&emsp;中国近现代史纲要<br>
